@@ -38,7 +38,7 @@ class Users(Resource):
     @marshal_with(userFields)
     def post(self):
         args = user_args.parse_args()
-        user = UserModel(name=args["name"],email=args["emails"])
+        user = UserModel(name=args["name"],email=args["email"])
         db.session.add(user)
         db.session.commit()
         users = UserModel.query.all()
